@@ -1,7 +1,7 @@
 import ColorBends from './components/ColorBends';
 import SplitText from "./components/SplitText";
 import ProfileCard from './components/ProfileCard';
-import FadeContent from './components/FadeContent'
+import FadeContent from './components/FadeContent';
 
 
 
@@ -46,9 +46,9 @@ function App() {
         {/* content jumbotron */}
         <div className='z-10 flex flex-col items-center'>
             <SplitText
-              text="Hello Im RinaldoEB !!!!"
+              text="Hey there! I’m RinaldoEB 👋"
               className="text-4xl md:text-6xl font-bold text-white mt-10"
-              delay={100}
+              delay={30}
               duration={0.6}
               ease="power3.out"
               splitType="chars"
@@ -60,9 +60,9 @@ function App() {
               onLetterAnimationComplete={handleAnimationComplete}
             />
             <SplitText
-              text="Welcome To my Profile Website"
+              text="I build modern, responsive, and beautiful websites — powered by creativity and code."
               className="text-2xl font-md text-white mt-10"
-              delay={100}
+              delay={30}
               duration={0.6}
               ease="power3.out"
               splitType="chars"
@@ -73,44 +73,87 @@ function App() {
               textAlign="center"
               onLetterAnimationComplete={handleAnimationComplete}
             />
+          {/* button jumbotron*/}
+
+          <FadeContent blur={true} duration={600} easing="ease-out" initialOpacity={0} className='z-0'>
+            <input type="button" value="Get started" className='text-white font-semibold py-5 px-5 bg-indigo-500/30 z-10  rounded-full cursor-pointer mt-10' onClick={() => location.href='#about'}  />
+          </FadeContent>
+          
+          {/* end button jumbotron */}
         </div>
         {/* end content jumbotron */}
 
-        {/* button jumbotron*/}
-  
-        <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-        </FadeContent>
-        {/* end button jumbotron */}
 
 
       </div>
       {/* end jumbotron */}
 
-      <ProfileCard
-        id="about"
-        className="place-self-center"
-  
-        name="Rinaldo EB"
-  
-        title="Software Engineer"
-  
-        handle="RinaldoEB"
-  
-        status="Online"
-  
-        contactText="Contact Me"
-  
-        avatarUrl="/src/path/profile.jpeg"
-  
-        showUserInfo={true}
-  
-        enableTilt={true}
-  
-        enableMobileTilt={false}
-  
-        onContactClick={() => window.open('https://github.com/RinaldoEB', '_blank')}
-  
-      />
+      {/* about Me */}
+      <div className='bg-black flex flex-col' id='about'>
+        {/* title about me */}
+          <SplitText
+                text="About Me"
+                className="mx-auto text-4xl font-bold text-white mt-10 flex"
+                delay={30}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+                onLetterAnimationComplete={handleAnimationComplete}
+          />
+        {/* end title about me */}
+
+        {/* content about me */}
+          <div className='container w-300 flex justify-items-center mt-30'>
+            <SplitText
+                text="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                className="mx-auto text-4xl font-lg text-left text-white mt-10 flex"
+                delay={30}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+                onLetterAnimationComplete={handleAnimationComplete}
+          />
+              <ProfileCard
+                id="about"
+                className="place-self-center"
+          
+                name="Rinaldo EB"
+          
+                title="Software Engineer"
+          
+                handle="RinaldoEB"
+          
+                status="Online"
+          
+                contactText="Contact Me"
+          
+                avatarUrl="/src/path/profile.jpeg"
+          
+                showUserInfo={true}
+          
+                enableTilt={true}
+          
+                enableMobileTilt={false}
+          
+                onContactClick={() => window.open('https://github.com/RinaldoEB', '_blank')}
+              />
+          </div>
+        {/* end content about me  */}
+      </div>
+        
+            
+      {/* end about me */}
+
     </div>
     
   
