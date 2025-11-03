@@ -4,6 +4,7 @@ import ProfileCard from './components/ProfileCard';
 import FadeContent from './components/FadeContent';
 import ScrollReveal from './components/ScrollReveal';
 import GridMotion from './components/GridMotion';
+import TrueFocus from './components/TrueFocus';
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollToPlugin);
@@ -47,10 +48,10 @@ function App() {
     <div className='font-sans'>
       {/* navbar */}
       <div className='relative'>
-        <div className='bg-white/19 backdrop-blur-sm w-150 mx-auto mt-4 text-2xl font-medium text-center text-white py-2 px-4 rounded-full z-20 flex justify-evenly fixed left-1/2 transform -translate-x-1/2'>
+        <div className='bg-white/10 border-1 border-gray-700 backdrop-blur-sm w-150 mx-auto mt-4 text-2xl font-medium text-center text-white py-2 px-4 rounded-full z-20 flex justify-evenly fixed left-1/2 transform -translate-x-1/2'>
           <a className='hover:text-gray-300 cursor-pointer' onClick={() => {gsap.to(window, { duration: 2, scrollTo: "#home", ease: "power2.out" });}}>Home</a>
           <a className='hover:text-gray-300 cursor-pointer' onClick={() => {gsap.to(window, { duration: 2, scrollTo: "#about", ease: "power2.out" });}}>About</a>
-          <a className='hover:text-gray-300 cursor-pointer'>Skill</a>
+          <a className='hover:text-gray-300 cursor-pointer' onClick={() => {gsap.to(window, { duration: 2, scrollTo: "#skill", ease: "power2.out" });}}>Skill</a>
           <a className='hover:text-gray-300 cursor-pointer' onClick={() => {gsap.to(window, { duration: 2, scrollTo: "#project", ease: "power2.out" });}}>Project</a>
         </div>
       </div>
@@ -125,7 +126,7 @@ function App() {
       {/* end jumbotron */}
 
       {/* about Me */}
-      <div className='bg-black flex flex-col justify-center items-center' id='about'>
+      <div className='bg-black flex flex-col justify-center items-center min-h-screen' id='about'>
         {/* title about me */}
           <SplitText
                 text="About Me"
@@ -187,10 +188,26 @@ function App() {
       {/* end about me */}
 
       {/* project */}
-        <div id='project'>
-          <GridMotion items={items} />
+        <div id='project' className=''>
+          <TrueFocus
+            sentence="My Projects"
+            manualMode={false}
+            blurAmount={5}
+            borderColor="purple"
+            glowColor="rgba(132, 0, 255, 0.6)"
+            animationDuration={2}
+            pauseBetweenAnimations={1}
+          />
+          <div>
+            <GridMotion items={items} />
+          </div>
         </div>
       {/* end project */}
+
+      {/* skill */}
+      <div id='skill' className='min-h-screen flex flex-col justify-center items-center bg-black'>
+      </div>
+      {/* end skill */}
     </div>
     
   
