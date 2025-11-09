@@ -1,0 +1,4 @@
+- [ ] Tambahkan 'bg-black' ke rootClasses di LogoLoop.jsx untuk background container hitam
+- [ ] Set fadeOutColor ke '#000000' di cssVariables untuk fade-out hitam
+- [ ] Tambahkan 'filter: invert(1)' ke className img untuk membuat logo putih
+- [ ] Jalankan aplikasi dan verifikasi perubahan

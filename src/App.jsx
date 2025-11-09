@@ -3,10 +3,12 @@ import SplitText from "./components/SplitText";
 import ProfileCard from './components/ProfileCard';
 import FadeContent from './components/FadeContent';
 import ScrollReveal from './components/ScrollReveal';
-import GridMotion from './components/GridMotion';
 import TrueFocus from './components/TrueFocus';
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import LogoLoop from './components/LogoLoop';
+import CircularGallery from './components/CircularGallery';
+import { SiReact, SiTailwindcss, SiHtml5, SiJavascript,SiCss3 } from 'react-icons/si';
 gsap.registerPlugin(ScrollToPlugin);
 
 
@@ -14,36 +16,19 @@ gsap.registerPlugin(ScrollToPlugin);
 
 function App() {
   const handleAnimationComplete = () => {
-  console.log('All letters have animated!');
+    console.log('All letters have animated!');
   };
-  
-  const items = [
-    'Item 1',
-    <div key='jsx-item-1'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 2',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 4',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 5',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 7',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 8',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 10',
-    <div key='jsx-item-3'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 11',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 13',
-    <div key='jsx-item-4'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 14',
-    // Add more items as needed
+
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiHtml5 />, title: "HTML5", href: "#" },
+    { node: <SiJavascript />, title: "JavaScript", href: "#" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <SiCss3 />, title: "CSS 3", href: "#" }
   ];
+
+  
+  
   return (
     <div className='font-sans'>
       {/* navbar */}
@@ -187,7 +172,7 @@ function App() {
       </div>
       {/* end about me */}
 
-      {/* project */}
+      {/* skill */}
         <div id='project' className=''>
           <TrueFocus
             sentence="My Projects"
@@ -199,15 +184,33 @@ function App() {
             pauseBetweenAnimations={1}
           />
           <div>
-            <GridMotion items={items} />
-          </div>
-        </div>
-      {/* end project */}
-
-      {/* skill */}
-      <div id='skill' className='min-h-screen flex flex-col justify-center items-center bg-black'>
+      <div style={{ position: 'relative', overflow: 'hidden'}} id='skill'>
+        <LogoLoop
+          className="bg-black text-white my-0 py-10"
+          logos={techLogos}
+          speed={120}
+          direction="left"
+          logoHeight={48}
+          gap={40}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          fadeOutColor="#000000ff"
+          ariaLabel="Technology partners"
+        />
       </div>
       {/* end skill */}
+
+      {/* project */}
+              <div style={{ height: '600px', position: 'relative' }}>
+                <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02}/>
+              </div>
+
+      </div>
+      </div>
+
+      {/* end project */}
+
     </div>
     
   
